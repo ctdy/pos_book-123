@@ -23,7 +23,6 @@ export default class Admin extends Component {
                     <Header>Header</Header>
                     <Content style={{ margin: '24px 16px 0',height:'100%' }}>
                         <div style={{ padding: 24, background: '#fff', minHeight: '100%' }}>
-                            content
                             <Switch>
                                 <Route path='/home' component={Home} exact/>
                                 <Route path='/user' component={User}/>
