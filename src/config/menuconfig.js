@@ -8,34 +8,22 @@ const MenuList = [
     {
         title: ' 订单管理', // 菜单标题名称
         key: '/order', // 对应的 path
-        icon: 'home', // 图标名称
+        icon: 'dollar', // 图标名称
     },
     {
         title: ' 仓库管理',
         key: '/warehouse',
-        icon: 'warehouse',
-        // children:[
-        //     {
-        //         title: ' 采购进货',
-        //         key: '/inhouse',
-        //         icon: 'warehouse',
-        //     },
-        //     {
-        //         title: ' 采购进货',
-        //         key: '/outhouse',
-        //         icon: 'warehouse',
-        //     }
-        // ]
+        icon: 'home',
     },
     {
         title: '销售记录',
         key: '/sell',
-        icon: 'sell',
+        icon: 'carry-out',
     },
     {
         title: '报表查询',
         key: '/charts',
-        icon: 'charts',
+        icon: 'radar-chart',
         // children: [
         //     {
         //         title: ' 柱形图',
