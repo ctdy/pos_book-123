@@ -1,9 +1,10 @@
 import React,{Component} from "react";
 import {Card,Table,Button,Input,Select,Modal} from "antd";
-import {reqBook,reqfindByName,reqfindByCatrgory,reqUpdateBook,reqAddBook} from "../../api";
+import {reqBook,reqfindByName,reqfindByCatrgory,reqUpdateBook,reqAddBook,reqDeleteBook} from "../../api";
 import {message} from "antd/es";
 import UpdateAddForm from "./update-addForm";
 import AddForm from "./addForm"
+import AddCategory from "./addCategory";
 
 const {Option} = Select;
 export default class WareHouse extends Component {
@@ -15,14 +16,10 @@ export default class WareHouse extends Component {
         searchName:'',
         visible: false,
         visible1:false,
+        visible2:false,
         loading:false,
+        selectedRowKeys: [],
     }
-
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
-    };
 
     handleOk = () => {
         this.form.validateFields(async (err,values) => {
@@ -42,6 +39,7 @@ export default class WareHouse extends Component {
         })
 
     };
+
     handleOk1 = () => {
         this.form.validateFields(async (err,values) => {
             if (!err){
@@ -59,17 +57,27 @@ export default class WareHouse extends Component {
         })
     }
 
+    handleOk2 = () => {
+        this.setState({visible2:false})
+    }
+
+    handleCancel2 = () => {
+
+    }
+
     handleCancel = e => {
         console.log(e);
         this.setState({
             visible: false,
         });
     };
+
     handleCancel1 = () => {
         this.setState({
             visible1: false,
         })
     }
+
     initColumns = () => {
         this.columns = [
             {
@@ -129,6 +137,14 @@ export default class WareHouse extends Component {
         }
     }
 
+    deleteBook = async () => {
+        const {selectedRowKeys} = this.state
+        const result = await reqDeleteBook(selectedRowKeys)
+        if (result.event === 200){
+            this.setState({selectedRowKeys: []})
+            this.getBookList()
+        }
+    }
     getBookSearch = () => {
         if (!this.state.searchName)
             this.getBookList()
@@ -164,16 +180,28 @@ export default class WareHouse extends Component {
         }
     }
 
+    onSelectChange = selectedRowKeys => {
+        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        this.setState({ selectedRowKeys });
+    };
+
     componentWillMount() {
         this.initColumns()
+        this.getBookList()
 
     }
     componentDidMount() {
-            this.getBookList()
+
     }
 
     render() {
-        const {book,searchType,searchName,books,loading} = this.state
+        const {book,searchType,searchName,books,loading,selectedRowKeys } = this.state
+        const rowSelection = {
+            selectedRowKeys,
+            onChange: this.onSelectChange,
+            fixed:true,
+        };
+        const hasSelected = selectedRowKeys.length > 0;
         const title = (
             <span>
                 <Select style={{width:150}} value={searchType} onChange={(value) => this.setState({searchType: value})}>
@@ -186,13 +214,18 @@ export default class WareHouse extends Component {
         )
         const extra = (
             <span>
+                <Button type='primary' onClick={() => this.setState({visible2:true})}>添加分类</Button>
                 <Button type='primary' style={{margin:'0 15px'}} onClick={() => this.setState({visible1:true})}>添加图书</Button>
+                <Button type="primary" onClick={this.deleteBook} disabled={!hasSelected}>
+            Reload
+          </Button>
             </span>
         )
         return (
             <div>
                 <Card title={title} extra={extra}>
                     <Table
+                        rowSelection={rowSelection}
                         bordered={true}
                         rowKey='id'       //以每一组数据的_id作为key
                          dataSource={book}
@@ -219,6 +252,13 @@ export default class WareHouse extends Component {
                     onCancel={this.handleCancel1}
                 >
                     <AddForm setForm={(form) => {this.form = form}}></AddForm>
+                </Modal>
+                <Modal
+                    visible={this.state.visible2}
+                    onOk={this.handleOk2}
+                    onCancel={this.handleCancel2}
+                >
+                    <AddCategory setForm={(form) => {this.form = form}}></AddCategory>
                 </Modal>
             </div>
         )

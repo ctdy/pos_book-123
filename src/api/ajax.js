@@ -18,6 +18,7 @@ export default function ajax(url,data={},type='POST') {
             })
         }else {
             promise = axios.post(url,parms)
+            console.log("promise",promise)
         }
         promise.then(response => {
             resolve(response.data)

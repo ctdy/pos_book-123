@@ -16,6 +16,8 @@ export const reqUpdateBook = (id,bookName,price,categoryId,brief,number) => ajax
 
 export const reqAddBook = (bookName,price,categoryId,brief,number,buyPerson,orderPrice) => ajax("/api/bookstore/addbook",{bookName,price,categoryId,brief,number,buyPerson,orderPrice})
 
+export const reqDeleteBook = (id) => ajax("/api/bookstore/deletebook",{id})
+
 
 
 

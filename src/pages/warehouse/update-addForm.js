@@ -1,18 +1,21 @@
 import React,{Component} from "react";
-import { Input,Select,Form } from "antd";
+import {Input,AutoComplete,Select,Form,Col,Button,Tooltip,Icon,Cascader,Row,Checkbox} from "antd";
 import PropTypes from 'prop-types'
 import { reqfindByparentId, reqfindSubCategory} from "../../api";
 
 import {message} from "antd/es";
 
+const { Option } = Select;
 const { TextArea } = Input;
 const { OptGroup } = Select;
-class AddForm extends Component {
+class UpdateAddForm extends Component {
 
     static propTypes = {
         setForm:PropTypes.func.isRequired,
     }
     state = {
+        confirmDirty: false,
+        autoCompleteResult: [],
         category:[],
         subcategory:[],
     };
@@ -48,7 +51,6 @@ class AddForm extends Component {
         }
 
     }
-
     componentWillMount() {
         this.props.setForm(this.props.form)
     }
@@ -61,6 +63,8 @@ class AddForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const {category,subcategory} = this.state;
+        const {book} = this.props
+
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -74,9 +78,16 @@ class AddForm extends Component {
 
         return (
             <Form {...formItemLayout}>
+                <Form.Item>
+                    {
+                        getFieldDecorator('id',{
+                            initialValue:book.id,
+                        })
+                    }
+                </Form.Item>
                 <Form.Item label="书名：">
                     {getFieldDecorator('bookName', {
-                        initialValue:'',
+                        initialValue:book.bookName,
                         rules: [
                             {
                                 required: true,
@@ -87,11 +98,11 @@ class AddForm extends Component {
                 </Form.Item>
                 <Form.Item label="分类">
                     {getFieldDecorator('categoryId', {
-                        initialValue: '',
+                        initialValue: book.categoryId,
                         rules: [
                             { required: true, message: '选中分类' },
                         ],
-                    })(<Select>
+                    })(<Select defaultValue={book.categoryId}>
                         {
                             category.map(c => <OptGroup label={c.category} >
                                 {
@@ -101,6 +112,7 @@ class AddForm extends Component {
                                         }else {
                                             return ;
                                         }
+
                                     })
                                 }
                             </OptGroup>)
@@ -109,42 +121,18 @@ class AddForm extends Component {
                 </Form.Item>
                 <Form.Item label="图书简介：">
                     {getFieldDecorator('brief', {
-                        initialValue:'',
+                        initialValue:book.brief,
                         rules: [
                             {
                                 required: true,
                                 message: '请输入图书简介',
                             },
                         ],
-                    })(<TextArea autoSize={{minRows:2,maxRows:6}}/>)}
-                </Form.Item>
-                <Form.Item label="采购人：">
-                    {getFieldDecorator('buyPerson', {
-                        initialValue:'',
-                        rules: [
-                            {
-                                required: false,
-                                message: '采购人',
-                            },
-                        ],
-                    })(<Input/>)}
-                </Form.Item>
-                <Form.Item label="采购单价：">
-                    {getFieldDecorator('orderPrice', {
-                        initialValue:'',
-                        rules: [
-                            {
-                                required: false,
-                                message: '请输入采购单价',
-                            },{
-                                validator:this.validatePrice
-                            }
-                        ],
-                    })(<Input style={{width:100}}/>)}
+                    })(<TextArea autosize={{minRows:2,maxRows:6}}/>)}
                 </Form.Item>
                 <Form.Item label="单价：">
                     {getFieldDecorator('price', {
-                        initialValue:'',
+                        initialValue:book.price,
                         rules: [
                             {
                                 required: true,
@@ -157,7 +145,7 @@ class AddForm extends Component {
                 </Form.Item>
                 <Form.Item label="库存：">
                     {getFieldDecorator('number', {
-                        initialValue:'',
+                        initialValue:book.number,
                         rules: [
                             {
                                 required: true,
@@ -170,4 +158,4 @@ class AddForm extends Component {
         )
     }
 }
-export default Form.create()(AddForm);
+export default Form.create()(UpdateAddForm);
