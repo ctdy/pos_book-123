@@ -8,33 +8,23 @@ const {Item} = Form.Item
 const { OptGroup,Option } = Select;
 class AddCategory extends Component {
 
+
     static propTypes = {
         setForm:PropTypes.func.isRequired,
+        category:PropTypes.array.isRequired,
     }
 
     state = {
         category:[],
     }
 
-    getCategory = async (parentId) => {
-        const result = await reqfindByparentId(parentId)
-        console.log("result",result)
-        if (result.event === 200){
-            const data = result.obj
-            console.log("一级",data)
-            this.setState({category:data})
-        }else {
-            message.error("检索一级分类列表失败")
-        }
-    }
-
-    componentDidMount() {
-        this.getCategory("0")
+    componentWillMount() {
+        this.props.setForm(this.props.form)
     }
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        const { category } = this.state
+        const { category } = this.props
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -48,25 +38,25 @@ class AddCategory extends Component {
 
         return (
                 <Form {...formItemLayout}>
-                    <Form.Item label="书名：">
-                        {getFieldDecorator('bookName', {
+                    <Form.Item label="分类名：">
+                        {getFieldDecorator('category', {
                             initialValue:'',
                             rules: [
                                 {
                                     required: true,
-                                    message: '请输入书名',
+                                    message: '请输入分类名',
                                 },
                             ],
                         })(<Input />)}
                     </Form.Item>
                     <Form.Item label="分类">
-                        {getFieldDecorator('categoryId', {
+                        {getFieldDecorator('parentId', {
                             initialValue: '',
                             rules: [
                                 { required: true, message: '选中分类' },
                             ],
-                        })(<Select>
-                            <Option value="1">一级分类</Option>
+                        })(<Select defaultValue="0">
+                            <Option value="0">一级分类</Option>
                             {
                                 category.map(c => <Option value={c.id}>{c.category}</Option>)
                             }

@@ -6,14 +6,19 @@ const MenuList = [
         icon: 'home', // 图标名称
     },
     {
+        title: ' 仓库管理',
+        key: '/warehouse',
+        icon: 'home',
+    },
+    {
         title: ' 订单管理', // 菜单标题名称
         key: '/order', // 对应的 path
         icon: 'dollar', // 图标名称
     },
     {
-        title: ' 仓库管理',
-        key: '/warehouse',
-        icon: 'home',
+        title:'分类管理',
+        key:'/category',
+        icon:'carry-out',
     },
     {
         title: '销售记录',
@@ -24,24 +29,8 @@ const MenuList = [
         title: '报表查询',
         key: '/charts',
         icon: 'radar-chart',
-        // children: [
-        //     {
-        //         title: ' 柱形图',
-        //         key: '/charts/bar',
-        //         icon: 'bar-chart'
-        //     },
-        //     {
-        //         title: ' 折线图',
-        //         key: '/charts/line',
-        //         icon: 'line-chart'
-        //     },
-        //     {
-        //         title: ' 饼图',
-        //         key: '/charts/pie',
-        //         icon: 'pie-chart'
-        //     },
-        // ]
     },
+
     {
       title:'用户管理',
         key:'/user',

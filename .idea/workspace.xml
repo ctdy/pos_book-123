@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12f347a5-d7aa-46f2-8647-1e1115746655" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/warehouse/categorySelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/category/category.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/menuconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/menuconfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sell/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sell/sell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/addCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/addCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,7 +109,14 @@
       <workItem from="1572528165529" duration="6349000" />
       <workItem from="1572580880334" duration="2834000" />
       <workItem from="1572657037711" duration="26348000" />
-      <workItem from="1572700036516" duration="585000" />
+      <workItem from="1572700036516" duration="1414000" />
+      <workItem from="1572765269404" duration="7424000" />
+      <workItem from="1572835460327" duration="5839000" />
+      <workItem from="1572847377349" duration="4111000" />
+      <workItem from="1572876501402" duration="1257000" />
+      <workItem from="1572913870829" duration="19461000" />
+      <workItem from="1573049402921" duration="2303000" />
+      <workItem from="1573121585355" duration="177000" />
     </task>
     <task id="LOCAL-00001" summary="编写三个接口，配置跨域">
       <created>1572534609174</created>
@@ -121,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572537103170</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="前端对接了增加和删除商品的接口">
+      <created>1572701955836</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572701955836</updated>
+    </task>
+    <task id="LOCAL-00004" summary="实现了添加分类的页面，接口已对接">
+      <created>1572794741752</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572794741752</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="编写三个接口，配置跨域" />
     <MESSAGE value="完成主页面的路由" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成主页面的路由" />
+    <MESSAGE value="前端对接了增加和删除商品的接口" />
+    <MESSAGE value="实现了添加分类的页面，接口已对接" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了添加分类的页面，接口已对接" />
   </component>
 </project>

@@ -1,10 +1,21 @@
 import React,{Component} from "react";
 import {Card,Table,Button,Input,Select,Modal} from "antd";
-import {reqBook,reqfindByName,reqfindByCatrgory,reqUpdateBook,reqAddBook,reqDeleteBook} from "../../api";
+import {
+    reqBook,
+    reqfindByName,
+    reqfindByCatrgory,
+    reqUpdateBook,
+    reqAddBook,
+    reqDeleteBook,
+    reqAddCategory,
+    reqfindByparentId,
+    reqAddSale,
+    reqfindByBookId
+} from "../../api";
 import {message} from "antd/es";
 import UpdateAddForm from "./update-addForm";
 import AddForm from "./addForm"
-import AddCategory from "./addCategory";
+import AddCategory from "./addCategory"
 
 const {Option} = Select;
 export default class WareHouse extends Component {
@@ -19,8 +30,25 @@ export default class WareHouse extends Component {
         visible2:false,
         loading:false,
         selectedRowKeys: [],
+        category:[],
     }
 
+    constructor(props){
+        super(props)
+        this.get = React.createRef()
+    }
+
+    getCategory = async (parentId) => {
+        const result = await reqfindByparentId(parentId)
+        console.log("result",result)
+        if (result.event === 200){
+            const data = result.obj
+            console.log("一级",data)
+            this.setState({category:data})
+        }else {
+            message.error("检索一级分类列表失败")
+        }
+    }
     handleOk = () => {
         this.form.validateFields(async (err,values) => {
             if (!err){
@@ -47,9 +75,9 @@ export default class WareHouse extends Component {
                     visible1:false,
                 })
                 console.log("handleOk1",values)
-                const {bookName,price,categoryId,brief,number,buyPerson,orderPrice} = values
+                const {bookName,price,categoryId,isbn,press,number,buyPerson,orderPrice} = values
                 this.form.resetFields()
-                const result = await reqAddBook(bookName,price,categoryId,brief,number,buyPerson,orderPrice)
+                const result = await reqAddBook(bookName,price,categoryId,isbn,press,number,buyPerson,orderPrice)
                 if (result.event === 200){
                     this.getBookList()
                 }
@@ -58,11 +86,24 @@ export default class WareHouse extends Component {
     }
 
     handleOk2 = () => {
-        this.setState({visible2:false})
+
+        this.form.validateFields(async (err,values) => {
+            if (!err){
+                this.setState({visible2:false})
+                this.form.resetFields()
+                const {category,parentId} = values
+
+                console.log("values",values)
+                const result = await reqAddCategory(parentId,category)
+                if (result.event === 200){
+                    this.getCategory("0")
+                }
+            }
+        })
     }
 
     handleCancel2 = () => {
-
+        this.setState({visible2:false})
     }
 
     handleCancel = e => {
@@ -92,9 +133,14 @@ export default class WareHouse extends Component {
                 dataIndex: 'category',
             },
             {
-                width:'30%',
-                title: '图书描述',
-                dataIndex: 'brief',
+                width:'10%',
+                title: 'isbn',
+                dataIndex: 'isbn',
+            },
+            {
+                width:'10%',
+                title: '出版社',
+                dataIndex: 'press',
             },
             {
                 width:'5%',
@@ -115,7 +161,7 @@ export default class WareHouse extends Component {
                     return (
                         <span>
                             <Button type='primary' style={{margin:'0 15px'}} onClick={() => this.setState({visible:true,books:books})}>修改</Button>
-                            <Button type='primary'>采购</Button>
+                            <Button type='primary' onClick={() => this.addSale()}>下单</Button>
                         </span>
                     )
                 }
@@ -145,6 +191,7 @@ export default class WareHouse extends Component {
             this.getBookList()
         }
     }
+
     getBookSearch = () => {
         if (!this.state.searchName)
             this.getBookList()
@@ -180,6 +227,20 @@ export default class WareHouse extends Component {
         }
     }
 
+    addSale = async () => {
+        const {bookName,press,price,id} = this.state.book
+        const result1 = await reqfindByBookId(id)
+        if (result1.event === 200){
+            message.error("此商品已经在订单中了")
+        }else {
+            const result = await reqAddSale(bookName,press,price,1,id,'pyj')
+            if (result.event === 200){
+                message.success("订单添加成功")
+            }
+        }
+
+    }
+
     onSelectChange = selectedRowKeys => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
@@ -188,6 +249,7 @@ export default class WareHouse extends Component {
     componentWillMount() {
         this.initColumns()
         this.getBookList()
+        this.getCategory("0")
 
     }
     componentDidMount() {
@@ -195,7 +257,7 @@ export default class WareHouse extends Component {
     }
 
     render() {
-        const {book,searchType,searchName,books,loading,selectedRowKeys } = this.state
+        const {book,searchType,searchName,books,loading,selectedRowKeys,category } = this.state
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,
@@ -217,7 +279,7 @@ export default class WareHouse extends Component {
                 <Button type='primary' onClick={() => this.setState({visible2:true})}>添加分类</Button>
                 <Button type='primary' style={{margin:'0 15px'}} onClick={() => this.setState({visible1:true})}>添加图书</Button>
                 <Button type="primary" onClick={this.deleteBook} disabled={!hasSelected}>
-            Reload
+            删除图书
           </Button>
             </span>
         )
@@ -237,9 +299,10 @@ export default class WareHouse extends Component {
                             showQuickJumper: true,
                              // onChange: this.getProduct   //(pageNum)=>{this.getProduct(pageNum)}的简化
                         }}
-                    />;
+                    />
                 </Card>
                 <Modal
+                    title="修改图书"
                     visible={this.state.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
@@ -247,6 +310,7 @@ export default class WareHouse extends Component {
                     <UpdateAddForm book={books} setForm={(form) => {this.form = form}}></UpdateAddForm>
                 </Modal>
                 <Modal
+                    title="添加图书"
                     visible={this.state.visible1}
                     onOk={this.handleOk1}
                     onCancel={this.handleCancel1}
@@ -254,11 +318,12 @@ export default class WareHouse extends Component {
                     <AddForm setForm={(form) => {this.form = form}}></AddForm>
                 </Modal>
                 <Modal
+                    title="添加分类"
                     visible={this.state.visible2}
                     onOk={this.handleOk2}
                     onCancel={this.handleCancel2}
                 >
-                    <AddCategory setForm={(form) => {this.form = form}}></AddCategory>
+                    <AddCategory setForm={(form) => {this.form = form}} category={category}></AddCategory>
                 </Modal>
             </div>
         )

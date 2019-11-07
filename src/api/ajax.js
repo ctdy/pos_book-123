@@ -8,7 +8,9 @@ export default function ajax(url,data={},type='POST') {
     return new Promise((resolve ,reject) => {
         let promise
         let parms = new URLSearchParams()
+        console.log("data: ",data)
         Object.keys(data).forEach(key => {
+            console.log("data[key]:",data[key])
             parms.append(key+'',data[key])
         })
             console.log("parms:" + parms)
