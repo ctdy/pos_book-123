@@ -39,3 +39,11 @@ export const reqAddSaleLog = (bookId,number,amount,categoryId) => ajax("api/sale
 
 export const reqfindAllSaleLog = () => ajax("/api/saleLogController/findAllSaleLog")
 
+export const reqfindAllByUpdate = (longTime) => ajax("api/saleLogController/findAllBySaleTime",{longTime})
+
+export const reqDeleteSaleLog = (id) => ajax("api/saleLogController/deleteSaleLog",{id})
+
+export const reqfindGroupCategory = () => ajax("api/saleLogController/findGroudByCategory")
+
+export const findAmountGroudBySaleLog = (dayAmount) => ajax("api/saleLogController/findAmountGroudBySaleLog",{dayAmount})
+
