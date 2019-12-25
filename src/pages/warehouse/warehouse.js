@@ -158,11 +158,11 @@ export default class WareHouse extends Component {
                 width:'10%',
                 title: '操作',
                 render: (books) => {
-                    const {bookName,press,price,id,number} = books
+                    const {bookName,press,price,id,number,categoryId} = books
                     return (
                         <span>
                             <Button type='primary' style={{margin:'0 15px'}} onClick={() => this.setState({visible:true,books:books})}>修改</Button>
-                            <Button type='primary' onClick={() => this.addSale(bookName,press,price,id,number)}>下单</Button>
+                            <Button type='primary' onClick={() => this.addSale(bookName,press,price,id,number,categoryId)}>下单</Button>
                         </span>
                     )
                 }
@@ -228,13 +228,13 @@ export default class WareHouse extends Component {
         }
     }
 
-    addSale = async (bookName,press,price,id,number) => {
+    addSale = async (bookName,press,price,id,number,categoryId) => {
 
         const result1 = await reqfindByBookId(id)
         if (result1.event === 200){
             message.error("此商品已经在订单中了")
         }else {
-            const result = await reqAddSale(bookName,press,price,1,id,'pyj',number)
+            const result = await reqAddSale(bookName,press,price,1,id,'pyj',number,categoryId)
             if (result.event === 200){
                 this.getBookList()
                 message.success("订单添加成功")
@@ -298,7 +298,6 @@ export default class WareHouse extends Component {
                         loading={loading}
                         columns={this.columns}
                         pagination={{
-                            // total:this.state.total,
                             defaultPageSize: 5,
                             showQuickJumper: true,
                              // onChange: this.getProduct   //(pageNum)=>{this.getProduct(pageNum)}的简化
