@@ -154,7 +154,7 @@ export default class Order extends Component {
                 console.log("data111: ",data)
                 data.map(async c => {
                     const result = await reqUpdateBookNumber((c.totalNumber-c.number),c.bookId)
-                    const result1 = await reqAddSaleLog(c.bookId,"pyj",c.number,c.amount,c.categoryId)
+                    const result1 = await reqAddSaleLog(c.bookId,c.number,c.amount,c.categoryId)
                     if (result.event === 200){
                         message.success("更改库存数量成功")
                     }
