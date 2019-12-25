@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="12f347a5-d7aa-46f2-8647-1e1115746655" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order/Order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/sell/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sell/sell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +113,7 @@
       <workItem from="1573296281731" duration="8664000" />
       <workItem from="1573350277850" duration="6483000" />
       <workItem from="1577274126425" duration="12455000" />
-      <workItem from="1573517342156" duration="13619000" />
+      <workItem from="1573517342156" duration="24303000" />
     </task>
     <task id="LOCAL-00001" summary="编写三个接口，配置跨域">
       <created>1572534609174</created>
@@ -159,7 +157,28 @@
       <option name="project" value="LOCAL" />
       <updated>1577275318140</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="增加更新库存，删除订单，添加到销售记录的接口">
+      <created>1577263937388</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1577263937388</updated>
+    </task>
+    <task id="LOCAL-00008" summary="完善了订单模块的页面和功能">
+      <created>1577264036686</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1577264036686</updated>
+    </task>
+    <task id="LOCAL-00009" summary="初步设计了销售记录的模块，但还需要改善">
+      <created>1577264105931</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1577264105931</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +203,9 @@
     <MESSAGE value="前端对接了增加和删除商品的接口" />
     <MESSAGE value="实现了添加分类的页面，接口已对接" />
     <MESSAGE value="更新接口，改了bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新接口，改了bug" />
+    <MESSAGE value="增加更新库存，删除订单，添加到销售记录的接口" />
+    <MESSAGE value="完善了订单模块的页面和功能" />
+    <MESSAGE value="初步设计了销售记录的模块，但还需要改善" />
+    <option name="LAST_COMMIT_MESSAGE" value="初步设计了销售记录的模块，但还需要改善" />
   </component>
 </project>

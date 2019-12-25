@@ -35,7 +35,7 @@ export const reqfindSaleForm = (id) => ajax("api/saleController/findSaleForm",{i
 
 export const reqfindDeleteSaleForm = (id) => ajax("api/saleController//deleteSaleByList",{id})
 
-export const reqAddSaleLog = (bookId,buyPerson,number,amount,categoryId) => ajax("api/saleLogController/addSaleLog",{bookId,buyPerson,number,amount,categoryId})
+export const reqAddSaleLog = (bookId,number,amount,categoryId) => ajax("api/saleLogController/addSaleLog",{bookId,number,amount,categoryId})
 
 export const reqfindAllSaleLog = () => ajax("/api/saleLogController/findAllSaleLog")
 

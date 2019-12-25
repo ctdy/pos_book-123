@@ -1,7 +1,6 @@
 import React,{Component} from "react";
 import {withRouter} from 'react-router-dom'
 import {formateDate} from "../../utils/dataUtils";
-import {Button} from "antd";
 import './header.less'
 import LinkButton from '../link-button/index'
 import MenuList from "../../config/menuconfig";
