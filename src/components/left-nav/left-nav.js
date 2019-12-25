@@ -3,6 +3,8 @@ import MenuList from "../../config/menuconfig";
 import {Menu,Icon} from "antd";
 import {Link,withRouter} from "react-router-dom";
 import LinkButton from "../link-button";
+import logo from '../../assets/images/logo.png'
+import './left-nav.less'
 
 
 const SubMenu = Menu.SubMenu
@@ -90,8 +92,8 @@ class LeftNav extends Component {
         return (
             <div  className="left-nav">
                 <Link to="/" className="left-nav-header">
-                    {/*<img src={} alt="logo"/>*/}
-                    <h1 >硅谷后台</h1>
+                        <img src={logo} alt="logo"/>
+                        <h1>佳哥书店</h1>
                 </Link>
                 {/*{console.log('path',path)}*/}
 

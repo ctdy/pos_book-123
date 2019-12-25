@@ -119,17 +119,6 @@ class UpdateAddForm extends Component {
                         }
                     </Select>)}
                 </Form.Item>
-                <Form.Item label="图书简介：">
-                    {getFieldDecorator('brief', {
-                        initialValue:book.brief,
-                        rules: [
-                            {
-                                required: true,
-                                message: '请输入图书简介',
-                            },
-                        ],
-                    })(<TextArea autosize={{minRows:2,maxRows:6}}/>)}
-                </Form.Item>
                 <Form.Item label="单价：">
                     {getFieldDecorator('price', {
                         initialValue:book.price,

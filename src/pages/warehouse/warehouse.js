@@ -10,7 +10,8 @@ import {
     reqAddCategory,
     reqfindByparentId,
     reqAddSale,
-    reqfindByBookId
+    reqfindByBookId,
+    reqUpdateBookNumber
 } from "../../api";
 import {message} from "antd/es";
 import UpdateAddForm from "./update-addForm";
@@ -157,11 +158,11 @@ export default class WareHouse extends Component {
                 width:'10%',
                 title: '操作',
                 render: (books) => {
-                    console.log("book",books)
+                    const {bookName,press,price,id,number} = books
                     return (
                         <span>
                             <Button type='primary' style={{margin:'0 15px'}} onClick={() => this.setState({visible:true,books:books})}>修改</Button>
-                            <Button type='primary' onClick={() => this.addSale()}>下单</Button>
+                            <Button type='primary' onClick={() => this.addSale(bookName,press,price,id,number)}>下单</Button>
                         </span>
                     )
                 }
@@ -227,15 +228,18 @@ export default class WareHouse extends Component {
         }
     }
 
-    addSale = async () => {
-        const {bookName,press,price,id} = this.state.book
+    addSale = async (bookName,press,price,id,number) => {
+
         const result1 = await reqfindByBookId(id)
         if (result1.event === 200){
             message.error("此商品已经在订单中了")
         }else {
-            const result = await reqAddSale(bookName,press,price,1,id,'pyj')
+            const result = await reqAddSale(bookName,press,price,1,id,'pyj',number)
             if (result.event === 200){
+                this.getBookList()
                 message.success("订单添加成功")
+            }else {
+                message.error("订单添加失败")
             }
         }
 

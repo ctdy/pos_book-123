@@ -21,13 +21,17 @@ export const reqDeleteBook = (id) => ajax("/api/bookstore/deletebook",{id})
 export const reqAddCategory = (parentId,category) => ajax("/api/category/addCategory",{parentId,category})
 
 //id就是bookId
-export const reqAddSale = (bookName,press,price,number,id,userId) => ajax("api/saleController/addSale",{bookName,press,price,number,id,userId})
+export const reqAddSale = (bookName,press,price,number,id,userId,totalNumber) => ajax("api/saleController/addSale",{bookName,press,price,number,id,userId,totalNumber})
 
 export const reqfindByBookId = (id) => ajax("api/saleController/findByBookId",{id})
 
 export const reqfindAllOrder = () => ajax("api/saleController/findAllOrder")
 
 export const reqUpdateOrder = (number,amount,id) => ajax("api/saleController/updateSale",{number,amount,id})
+
+export const reqDeleteOrder = (id) => ajax("api/saleController/deleteSale",{id})
+
+export const reqUpdateBookNumber = (number,id) => ajax("api/bookstore/updateBookNumber",{number,id})
 
 
 

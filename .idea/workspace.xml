@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12f347a5-d7aa-46f2-8647-1e1115746655" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/left-nav/left-nav.less" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/pages/category/category.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/menuconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/menuconfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/left-nav/left-nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/left-nav/left-nav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order/Order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/sell/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sell/sell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/addCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/addCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" afterDir="false" />
@@ -40,7 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/header" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -57,6 +55,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\react\pos_book\src\assets\images" />
       <recent name="D:\react\pos_book\src\components\header" />
       <recent name="D:\react\pos_book\src\components" />
       <recent name="D:\react\pos_book\src" />
@@ -116,7 +115,11 @@
       <workItem from="1572876501402" duration="1257000" />
       <workItem from="1572913870829" duration="19461000" />
       <workItem from="1573049402921" duration="2303000" />
-      <workItem from="1573121585355" duration="177000" />
+      <workItem from="1573121585355" duration="1399000" />
+      <workItem from="1573136180664" duration="598000" />
+      <workItem from="1573296281731" duration="8664000" />
+      <workItem from="1573350277850" duration="6483000" />
+      <workItem from="1577274126425" duration="903000" />
     </task>
     <task id="LOCAL-00001" summary="编写三个接口，配置跨域">
       <created>1572534609174</created>
@@ -146,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572794741752</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="实现了添加分类的页面，接口已对接">
+      <created>1573121807580</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573121807580</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

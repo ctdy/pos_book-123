@@ -107,16 +107,27 @@ class AddForm extends Component {
                         }
                     </Select>)}
                 </Form.Item>
-                <Form.Item label="图书简介：">
-                    {getFieldDecorator('brief', {
+                <Form.Item label="isbn：">
+                    {getFieldDecorator('isbn', {
                         initialValue:'',
                         rules: [
                             {
                                 required: true,
-                                message: '请输入图书简介',
+                                message: '请输入图书版号',
                             },
                         ],
-                    })(<TextArea autoSize={{minRows:2,maxRows:6}}/>)}
+                    })(<Input/>)}
+                </Form.Item>
+                <Form.Item label="出版社：">
+                    {getFieldDecorator('press', {
+                        initialValue:'',
+                        rules: [
+                            {
+                                required: true,
+                                message: '请输入图书出版社',
+                            },
+                        ],
+                    })(<Input/>)}
                 </Form.Item>
                 <Form.Item label="采购人：">
                     {getFieldDecorator('buyPerson', {
