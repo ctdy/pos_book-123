@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12f347a5-d7aa-46f2-8647-1e1115746655" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/left-nav/left-nav.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/category/category.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/left-nav/left-nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/left-nav/left-nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/order/Order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/sell/sell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sell/sell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/addForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/update-addForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/warehouse/warehouse.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +45,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.gitee" />
+    <property name="settings.editor.selected.configurable" value="background.image.plus" />
     <property name="ts.external.directory.path" value="D:\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -119,7 +114,8 @@
       <workItem from="1573136180664" duration="598000" />
       <workItem from="1573296281731" duration="8664000" />
       <workItem from="1573350277850" duration="6483000" />
-      <workItem from="1577274126425" duration="903000" />
+      <workItem from="1577274126425" duration="12455000" />
+      <workItem from="1573517342156" duration="13619000" />
     </task>
     <task id="LOCAL-00001" summary="编写三个接口，配置跨域">
       <created>1572534609174</created>
@@ -156,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573121807580</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更新接口，改了bug">
+      <created>1577275318140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577275318140</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +183,7 @@
     <MESSAGE value="完成主页面的路由" />
     <MESSAGE value="前端对接了增加和删除商品的接口" />
     <MESSAGE value="实现了添加分类的页面，接口已对接" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了添加分类的页面，接口已对接" />
+    <MESSAGE value="更新接口，改了bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新接口，改了bug" />
   </component>
 </project>

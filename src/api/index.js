@@ -8,8 +8,6 @@ export const reqfindByCatrgory = (category) => ajax('/api/bookstore/findAllCateg
 
 export const reqfindByparentId = (parentId) => ajax("/api/category/findAllOneCategory",{parentId})
 
-export const reqfindAllCatgory = () => ajax("/api/category/findCategory")
-
 export const reqfindSubCategory = () => ajax("/api/category/findAlltotalCategory")
 
 export const reqUpdateBook = (id,bookName,price,categoryId,isbn,press,number) => ajax("/api/bookstore/updatebook",{id,bookName,price,categoryId,isbn,press,number})
@@ -21,7 +19,7 @@ export const reqDeleteBook = (id) => ajax("/api/bookstore/deletebook",{id})
 export const reqAddCategory = (parentId,category) => ajax("/api/category/addCategory",{parentId,category})
 
 //id就是bookId
-export const reqAddSale = (bookName,press,price,number,id,userId,totalNumber) => ajax("api/saleController/addSale",{bookName,press,price,number,id,userId,totalNumber})
+export const reqAddSale = (bookName,press,price,number,id,userId,totalNumber,categoryId) => ajax("api/saleController/addSale",{bookName,press,price,number,id,userId,totalNumber,categoryId})
 
 export const reqfindByBookId = (id) => ajax("api/saleController/findByBookId",{id})
 
@@ -33,5 +31,11 @@ export const reqDeleteOrder = (id) => ajax("api/saleController/deleteSale",{id})
 
 export const reqUpdateBookNumber = (number,id) => ajax("api/bookstore/updateBookNumber",{number,id})
 
+export const reqfindSaleForm = (id) => ajax("api/saleController/findSaleForm",{id})
 
+export const reqfindDeleteSaleForm = (id) => ajax("api/saleController//deleteSaleByList",{id})
+
+export const reqAddSaleLog = (bookId,buyPerson,number,amount,categoryId) => ajax("api/saleLogController/addSaleLog",{bookId,buyPerson,number,amount,categoryId})
+
+export const reqfindAllSaleLog = () => ajax("/api/saleLogController/findAllSaleLog")
 
